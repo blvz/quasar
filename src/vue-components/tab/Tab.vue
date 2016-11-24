@@ -4,11 +4,20 @@
     :class="{active: isActive, hidden, disabled: disable, hideIcon: hide === 'icon', hideLabel: hide === 'label'}"
     @click="activate()"
   >
-    <router-link v-if="route" ref="routerLink" :to="route" :replace="replace" :append="append" :exact="exact"></router-link>
-    <i v-if="icon" class="q-tabs-icon">{{icon}}</i>
-    <span class="q-tab-label">
-      <slot></slot>
-    </span>
+
+    <router-link v-if="route" ref="routerLink" :to="route" :replace="replace" :append="append" :exact="exact">
+      <i v-if="icon" class="q-tabs-icon">{{icon}}</i>
+      <span class="q-tab-label">
+        <slot></slot>
+      </span>
+    </router-link>
+
+    <template v-else>
+      <i v-if="icon" class="q-tabs-icon">{{icon}}</i>
+      <span class="q-tab-label">
+        <slot></slot>
+      </span>
+    </template>
   </div>
 </template>
 
