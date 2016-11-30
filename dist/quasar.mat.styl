@@ -523,9 +523,9 @@ $form-active-color    ?= $primary
 $form-border          ?= 3px solid $form-darker-color
 $form-border-radius   ?= $generic-border-radius
 $form-shadow          ?= 0 1px 3px 1px rgba(0, 0, 0, .4)
-$backdrop-opacity           ?= .3
+$backdrop-opacity     ?= .3
 $backdrop-background  ?= rgba(0, 0, 0, $backdrop-opacity)
-$generic-margin             ?= 5px
+$generic-margin       ?= 5px
 $action-sheet-avatar-padding   ?= .6rem 1.2rem
 $action-sheet-hover-background ?= #d0d0d0
 .q-action-sheet-gallery
@@ -2588,7 +2588,7 @@ $range-handle-radius       ?= 50%
   margin-right ($range-handle-size / 2)
 .q-range-label
   position relative
-  top - $range-handle-size * 0.75
+  top - $range-handle-size * .75
   left -25%
   padding 8px 0
   opacity 0
@@ -2604,7 +2604,7 @@ $range-handle-radius       ?= 50%
     content ''
     z-index -1
     position absolute
-    top (- $range-handle-size * 0.25)
+    top (- $range-handle-size * .25)
     left 0
     width (1.5 * $range-handle-size)
     height (1.5 * $range-handle-size)
@@ -2615,7 +2615,7 @@ $range-handle-radius       ?= 50%
     opacity 1
     transform translateY(-50%) scale(1)
 .q-range-handle.undraggable>.q-range-label
-  top (- $range-handle-size - ($range-handle-size * 0.75))
+  top (- $range-handle-size - ($range-handle-size * .75))
 .q-range-handle
   position absolute
   top 50%
@@ -2648,26 +2648,21 @@ $range-handle-radius       ?= 50%
         color black
         &:before
           background $range-color
-.q-range-handle.undraggable:before
-  content: ''
-  display: block
-  width 0
-  height 0
-  border-top ($range-handle-size / 2) solid transparent
-  border-bottom ($range-handle-size / 2) solid transparent
-  &.handle-at-minimum
-    border-top-color $range-color
-    border-bottom-color $range-color
-.range-handle-min.undraggable:before
+    &:before
+      content ''
+      display block
+      width 0
+      height 0
+      border-top ($range-handle-size / 2) solid transparent
+      border-bottom ($range-handle-size / 2) solid transparent
+.q-range-handle-min.undraggable:before
   border-left $range-handle-size solid $range-active-color
-  margin-left $range-handle-size * 0.35
-.range-handle-min.handle-at-minimum.undraggable:before
-    border-left-color $range-color
-.range-handle-max.undraggable:before
+  margin-left ($range-handle-size * .35)
+.q-range-handle-min.handle-at-minimum.undraggable:before
+  border-left-color $range-color
+.q-range-handle-max.undraggable:before
   border-right $range-handle-size solid $range-active-color
-  margin-left $range-handle-size * -0.35
-.range-handle-max.handle-at-maximum.undraggable:before
-    
+  margin-left ($range-handle-size * -.35)
 .q-range
   height $range-height
   width 100%
@@ -3055,6 +3050,7 @@ $tooltip-border-radius ?= $generic-border-radius
   border-radius $tooltip-border-radius
   overflow-y auto
   overflow-x hidden
+  pointer-events none
 $tree-connector-color            ?= #ccc
 $tree-label-padding              ?= 5px
 $tree-label-border-radius        ?= $generic-border-radius

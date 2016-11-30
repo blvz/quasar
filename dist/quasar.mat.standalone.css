@@ -4867,472 +4867,318 @@ body.desktop .q-progress {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
-.q-range-handle.undraggable:before.handle-at-minimum {
-  border-top-color: #e0e0e0;
-  border-bottom-color: #e0e0e0;
-}
-.range-handle-min.undraggable:before {
+.q-range-handle-min.undraggable:before {
   border-left: 20px solid #027be3;
   margin-left: 7px;
 }
-.range-handle-min.handle-at-minimum.undraggable:before {
+.q-range-handle-min.handle-at-minimum.undraggable:before {
   border-left-color: #e0e0e0;
 }
-.range-handle-max.undraggable:before {
+.q-range-handle-max.undraggable:before {
   border-right: 20px solid #027be3;
   margin-left: -7px;
 }
-.range-handle-max.handle-at-maximum.undraggable:before,
 .q-range {
   height: 36px;
   width: 100%;
   cursor: pointer;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.primary .q-range-track.active-track,
 .q-range.primary .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.primary .q-range-handle:not(.handle-at-minimum),
 .q-range.primary .q-range-handle:not(.handle-at-minimum) {
   background: #027be3;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.primary .q-range-track.active-track .q-range-label:before,
 .q-range.primary .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.primary .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.primary .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #027be3;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-track.active-track,
 .q-range.secondary .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-handle:not(.handle-at-minimum),
 .q-range.secondary .q-range-handle:not(.handle-at-minimum) {
   background: #26a69a;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-track.active-track .q-range-label,
 .q-range.secondary .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.secondary .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-track.active-track .q-range-label:before,
 .q-range.secondary .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.secondary .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.secondary .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #26a69a;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.tertiary .q-range-track.active-track,
 .q-range.tertiary .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.tertiary .q-range-handle:not(.handle-at-minimum),
 .q-range.tertiary .q-range-handle:not(.handle-at-minimum) {
   background: #555;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.tertiary .q-range-track.active-track .q-range-label:before,
 .q-range.tertiary .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.tertiary .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.tertiary .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #555;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-track.active-track,
 .q-range.positive .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-handle:not(.handle-at-minimum),
 .q-range.positive .q-range-handle:not(.handle-at-minimum) {
   background: #21ba45;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-track.active-track .q-range-label,
 .q-range.positive .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.positive .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-track.active-track .q-range-label:before,
 .q-range.positive .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.positive .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.positive .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #21ba45;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.negative .q-range-track.active-track,
 .q-range.negative .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.negative .q-range-handle:not(.handle-at-minimum),
 .q-range.negative .q-range-handle:not(.handle-at-minimum) {
   background: #db2828;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.negative .q-range-track.active-track .q-range-label:before,
 .q-range.negative .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.negative .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.negative .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #db2828;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-track.active-track,
 .q-range.warning .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-handle:not(.handle-at-minimum),
 .q-range.warning .q-range-handle:not(.handle-at-minimum) {
   background: #f2c037;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-track.active-track .q-range-label,
 .q-range.warning .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.warning .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-track.active-track .q-range-label:before,
 .q-range.warning .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.warning .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.warning .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #f2c037;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-track.active-track,
 .q-range.info .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-handle:not(.handle-at-minimum),
 .q-range.info .q-range-handle:not(.handle-at-minimum) {
   background: #31ccec;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-track.active-track .q-range-label,
 .q-range.info .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.info .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-track.active-track .q-range-label:before,
 .q-range.info .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.info .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.info .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #31ccec;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-track.active-track,
 .q-range.light .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-handle:not(.handle-at-minimum),
 .q-range.light .q-range-handle:not(.handle-at-minimum) {
   background: #f4f4f4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-track.active-track .q-range-label,
 .q-range.light .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.light .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-track.active-track .q-range-label:before,
 .q-range.light .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.light .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.light .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #f4f4f4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.dark .q-range-track.active-track,
 .q-range.dark .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.dark .q-range-handle:not(.handle-at-minimum),
 .q-range.dark .q-range-handle:not(.handle-at-minimum) {
   background: #333;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.dark .q-range-track.active-track .q-range-label:before,
 .q-range.dark .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.dark .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.dark .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #333;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-track.active-track,
 .q-range.white .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-handle:not(.handle-at-minimum),
 .q-range.white .q-range-handle:not(.handle-at-minimum) {
   background: #fff;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-track.active-track .q-range-label,
 .q-range.white .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.white .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-track.active-track .q-range-label:before,
 .q-range.white .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.white .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.white .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #fff;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.red .q-range-track.active-track,
 .q-range.red .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.red .q-range-handle:not(.handle-at-minimum),
 .q-range.red .q-range-handle:not(.handle-at-minimum) {
   background: #f44336;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.red .q-range-track.active-track .q-range-label:before,
 .q-range.red .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.red .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.red .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #f44336;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.pink .q-range-track.active-track,
 .q-range.pink .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.pink .q-range-handle:not(.handle-at-minimum),
 .q-range.pink .q-range-handle:not(.handle-at-minimum) {
   background: #e91e63;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.pink .q-range-track.active-track .q-range-label:before,
 .q-range.pink .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.pink .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.pink .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #e91e63;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.purple .q-range-track.active-track,
 .q-range.purple .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.purple .q-range-handle:not(.handle-at-minimum),
 .q-range.purple .q-range-handle:not(.handle-at-minimum) {
   background: #9c27b0;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.purple .q-range-track.active-track .q-range-label:before,
 .q-range.purple .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.purple .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.purple .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #9c27b0;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.deep-purple .q-range-track.active-track,
 .q-range.deep-purple .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.deep-purple .q-range-handle:not(.handle-at-minimum),
 .q-range.deep-purple .q-range-handle:not(.handle-at-minimum) {
   background: #673ab7;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.deep-purple .q-range-track.active-track .q-range-label:before,
 .q-range.deep-purple .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.deep-purple .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.deep-purple .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #673ab7;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.indigo .q-range-track.active-track,
 .q-range.indigo .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.indigo .q-range-handle:not(.handle-at-minimum),
 .q-range.indigo .q-range-handle:not(.handle-at-minimum) {
   background: #3f51b5;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.indigo .q-range-track.active-track .q-range-label:before,
 .q-range.indigo .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.indigo .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.indigo .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #3f51b5;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.blue .q-range-track.active-track,
 .q-range.blue .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.blue .q-range-handle:not(.handle-at-minimum),
 .q-range.blue .q-range-handle:not(.handle-at-minimum) {
   background: #2196f3;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.blue .q-range-track.active-track .q-range-label:before,
 .q-range.blue .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.blue .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.blue .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #2196f3;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-track.active-track,
 .q-range.light-blue .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-handle:not(.handle-at-minimum),
 .q-range.light-blue .q-range-handle:not(.handle-at-minimum) {
   background: #03a9f4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-track.active-track .q-range-label,
 .q-range.light-blue .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.light-blue .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-track.active-track .q-range-label:before,
 .q-range.light-blue .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.light-blue .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.light-blue .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #03a9f4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-track.active-track,
 .q-range.cyan .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-handle:not(.handle-at-minimum),
 .q-range.cyan .q-range-handle:not(.handle-at-minimum) {
   background: #00bcd4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-track.active-track .q-range-label,
 .q-range.cyan .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.cyan .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-track.active-track .q-range-label:before,
 .q-range.cyan .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.cyan .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.cyan .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #00bcd4;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.teal .q-range-track.active-track,
 .q-range.teal .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.teal .q-range-handle:not(.handle-at-minimum),
 .q-range.teal .q-range-handle:not(.handle-at-minimum) {
   background: #009688;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.teal .q-range-track.active-track .q-range-label:before,
 .q-range.teal .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.teal .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.teal .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #009688;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-track.active-track,
 .q-range.green .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-handle:not(.handle-at-minimum),
 .q-range.green .q-range-handle:not(.handle-at-minimum) {
   background: #4caf50;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-track.active-track .q-range-label,
 .q-range.green .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.green .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-track.active-track .q-range-label:before,
 .q-range.green .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.green .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.green .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #4caf50;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-track.active-track,
 .q-range.light-green .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-handle:not(.handle-at-minimum),
 .q-range.light-green .q-range-handle:not(.handle-at-minimum) {
   background: #8bc34a;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-track.active-track .q-range-label,
 .q-range.light-green .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.light-green .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-track.active-track .q-range-label:before,
 .q-range.light-green .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.light-green .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.light-green .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #8bc34a;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-track.active-track,
 .q-range.lime .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-handle:not(.handle-at-minimum),
 .q-range.lime .q-range-handle:not(.handle-at-minimum) {
   background: #cddc39;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-track.active-track .q-range-label,
 .q-range.lime .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.lime .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-track.active-track .q-range-label:before,
 .q-range.lime .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.lime .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.lime .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #cddc39;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-track.active-track,
 .q-range.yellow .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-handle:not(.handle-at-minimum),
 .q-range.yellow .q-range-handle:not(.handle-at-minimum) {
   background: #ffeb3b;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-track.active-track .q-range-label,
 .q-range.yellow .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.yellow .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-track.active-track .q-range-label:before,
 .q-range.yellow .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.yellow .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.yellow .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #ffeb3b;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-track.active-track,
 .q-range.amber .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-handle:not(.handle-at-minimum),
 .q-range.amber .q-range-handle:not(.handle-at-minimum) {
   background: #ffc107;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-track.active-track .q-range-label,
 .q-range.amber .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.amber .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-track.active-track .q-range-label:before,
 .q-range.amber .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.amber .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.amber .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #ffc107;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-track.active-track,
 .q-range.orange .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-handle:not(.handle-at-minimum),
 .q-range.orange .q-range-handle:not(.handle-at-minimum) {
   background: #ff9800;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-track.active-track .q-range-label,
 .q-range.orange .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.orange .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-track.active-track .q-range-label:before,
 .q-range.orange .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.orange .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.orange .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #ff9800;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.deep-orange .q-range-track.active-track,
 .q-range.deep-orange .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.deep-orange .q-range-handle:not(.handle-at-minimum),
 .q-range.deep-orange .q-range-handle:not(.handle-at-minimum) {
   background: #ff5722;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.deep-orange .q-range-track.active-track .q-range-label:before,
 .q-range.deep-orange .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.deep-orange .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.deep-orange .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #ff5722;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.brown .q-range-track.active-track,
 .q-range.brown .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.brown .q-range-handle:not(.handle-at-minimum),
 .q-range.brown .q-range-handle:not(.handle-at-minimum) {
   background: #795548;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.brown .q-range-track.active-track .q-range-label:before,
 .q-range.brown .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.brown .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.brown .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #795548;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-track.active-track,
 .q-range.grey .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-handle:not(.handle-at-minimum),
 .q-range.grey .q-range-handle:not(.handle-at-minimum) {
   background: #9e9e9e;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-track.active-track .q-range-label,
 .q-range.grey .q-range-track.active-track .q-range-label,
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-handle:not(.handle-at-minimum) .q-range-label,
 .q-range.grey .q-range-handle:not(.handle-at-minimum) .q-range-label {
   color: #000;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-track.active-track .q-range-label:before,
 .q-range.grey .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.grey .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.grey .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #9e9e9e;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.blue-grey .q-range-track.active-track,
 .q-range.blue-grey .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.blue-grey .q-range-handle:not(.handle-at-minimum),
 .q-range.blue-grey .q-range-handle:not(.handle-at-minimum) {
   background: #607d8b;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.blue-grey .q-range-track.active-track .q-range-label:before,
 .q-range.blue-grey .q-range-track.active-track .q-range-label:before,
-.range-handle-max.handle-at-maximum.undraggable:before.blue-grey .q-range-handle:not(.handle-at-minimum) .q-range-label:before,
 .q-range.blue-grey .q-range-handle:not(.handle-at-minimum) .q-range-label:before {
   background: #607d8b;
 }
-.range-handle-max.handle-at-maximum.undraggable:before.has-error .q-range-track,
 .q-range.has-error .q-range-track {
   background: rgba(219,40,40,0.5);
 }
-.range-handle-max.handle-at-maximum.undraggable:before.has-error .q-range-track.active-track,
 .q-range.has-error .q-range-track.active-track,
-.range-handle-max.handle-at-maximum.undraggable:before.has-error .q-range-handle:not(.handle-at-minimum),
 .q-range.has-error .q-range-handle:not(.handle-at-minimum) {
   background: #db2828;
 }
@@ -7154,6 +7000,7 @@ body.mobile .q-tabs-scroller {
   border-radius: 2px;
   overflow-y: auto;
   overflow-x: hidden;
+  pointer-events: none;
 }
 .q-tree li {
   margin: 0;

@@ -585,18 +585,6 @@ function extend() {
   return target;
 }
 
-var getVueRef = function (vm, refName) {
-  var parent = vm.$parent;
-
-  while (parent && (!parent.$refs || !parent.$refs[refName])) {
-    parent = parent.$parent;
-  }
-
-  if (parent) {
-    return parent.$refs[refName];
-  }
-};
-
 var ModalGenerator = function (VueComponent) {
   return {
     create: function create(props) {
@@ -625,7 +613,9 @@ var ModalGenerator = function (VueComponent) {
 
 var Dialog$1 = { render: function render() {
     with(this) {
-      return _h('q-modal', { ref: "dialog", staticClass: "minimized" }, [_h('div', { staticClass: "modal-header", domProps: { "innerHTML": _s(title || '') } }), message ? _h('div', { staticClass: "modal-body modal-scroll", domProps: { "innerHTML": _s(message) } }) : _e(), form ? _h('div', { staticClass: "modal-body modal-scroll" }, [_l(form, function (el) {
+      return _h('q-modal', { ref: "dialog", staticClass: "minimized", attrs: { "no-backdrop-dismiss": noBackdropDismiss, "no-esc-dismiss": noEscDismiss }, on: { "close": function close($event) {
+            __dismiss();
+          } } }, [_h('div', { staticClass: "modal-header", domProps: { "innerHTML": _s(title || '') } }), message ? _h('div', { staticClass: "modal-body modal-scroll", domProps: { "innerHTML": _s(message) } }) : _e(), form ? _h('div', { staticClass: "modal-body modal-scroll" }, [_l(form, function (el) {
         return [el.type === 'heading' ? _h('h6', { domProps: { "innerHTML": _s(el.label) } }) : _e(), el.type === 'textbox' ? _h('div', { staticClass: "floating-label", staticStyle: { "margin-bottom": "10px" } }, [_h('input', { directives: [{ name: "model", rawName: "v-model", value: el.model, expression: "el.model" }], staticClass: "full-width", attrs: { "type": "text", "placeholder": el.placeholder, "required": "" }, domProps: { "value": _s(el.model) }, on: { "input": function input($event) {
               if ($event.target.composing) return;el.model = $event.target.value;
             } } }), _h('label', { domProps: { "innerHTML": _s(el.label) } })]) : _e(), el.type === 'textarea' ? _h('div', { staticClass: "floating-label", staticStyle: { "margin-bottom": "10px" } }, [_h('textarea', { directives: [{ name: "model", rawName: "v-model", value: el.model, expression: "el.model" }], staticClass: "full-width", attrs: { "type": "text", "placeholder": el.placeholder, "required": "" }, domProps: { "value": _s(el.model) }, on: { "input": function input($event) {
@@ -665,11 +655,16 @@ var Dialog$1 = { render: function render() {
     stackButtons: Boolean,
     buttons: Array,
     nobuttons: Boolean,
-    progress: Object
+    progress: Object,
+    onDismiss: Function,
+    noBackdropDismiss: Boolean,
+    noEscDismiss: Boolean
   },
   computed: {
     opened: function opened() {
-      return this.$refs.dialog.active;
+      if (this.$refs.dialog) {
+        return this.$refs.dialog.active;
+      }
     }
   },
   methods: {
@@ -707,8 +702,6 @@ var Dialog$1 = { render: function render() {
       return data;
     },
     close: function close(fn) {
-      var _this3 = this;
-
       if (!this.opened) {
         return;
       }
@@ -716,8 +709,13 @@ var Dialog$1 = { render: function render() {
         if (typeof fn === 'function') {
           fn();
         }
-        _this3.$root.$destroy();
       });
+    },
+    __dismiss: function __dismiss() {
+      this.$root.$destroy();
+      if (typeof this.onDismiss === 'function') {
+        this.onDismiss();
+      }
     }
   },
   mounted: function mounted() {
@@ -941,6 +939,52 @@ var popup = Object.freeze({
 	parsePosition: parsePosition
 });
 
+var size$1 = void 0;
+
+function width$2() {
+  if (size$1) {
+    return size$1;
+  }
+
+  var inner = document.createElement('p'),
+      outer = document.createElement('div');
+
+  css$1(inner, {
+    width: '100%',
+    height: '200px'
+  });
+  css$1(outer, {
+    position: 'absolute',
+    top: '0px',
+    left: '0px',
+    visibility: 'hidden',
+    width: '200px',
+    height: '150px',
+    overflow: 'hidden'
+  });
+
+  outer.appendChild(inner);
+
+  document.body.appendChild(outer);
+
+  var w1 = inner.offsetWidth;
+  outer.style.overflow = 'scroll';
+  var w2 = inner.offsetWidth;
+
+  if (w1 === w2) {
+    w2 = outer.clientWidth;
+  }
+
+  document.body.removeChild(outer);
+  size$1 = w1 - w2;
+
+  return size$1;
+}
+
+var scrollbar = Object.freeze({
+	width: width$2
+});
+
 function s4() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
@@ -1026,9 +1070,9 @@ var Utils = {
   dom: dom,
   event: event,
   extend: extend,
-  getVueRef: getVueRef,
   openURL: openURL,
   popup: popup,
+  scrollbar: scrollbar,
   store: store,
   throttle: throttle,
   uid: uid$1
@@ -3299,10 +3343,10 @@ var Drawer = { render: function render() {
 
 var DrawerLink = { render: function render() {
     with(this) {
-      return _h('div', { directives: [{ name: "link", rawName: "v-link.delay", value: route, expression: "route", modifiers: { "delay": true } }], staticClass: "item item-link drawer-closer" }, [icon ? _h('i', { staticClass: "item-primary" }, [_s(icon)]) : _e(), _h('div', { staticClass: "item-content" }, [_t("default")])]);
+      return _h('div', { directives: [{ name: "link", rawName: "v-link.delay", value: to, expression: "to", modifiers: { "delay": true } }], staticClass: "item item-link drawer-closer" }, [icon ? _h('i', { staticClass: "item-primary" }, [_s(icon)]) : _e(), _h('div', { staticClass: "item-content" }, [_t("default")])]);
     }
   }, staticRenderFns: [],
-  props: ['icon', 'route']
+  props: ['icon', 'to']
 };
 
 var Fab = { render: function render() {
@@ -4645,7 +4689,7 @@ var DoubleRange = { render: function render() {
             $event.preventDefault();__update($event);
           } } }, [_h('div', { ref: "handle", staticClass: "q-range-handle-container" }, [_h('div', { staticClass: "q-range-track" }), _l((max - min) / step + 1, function (n) {
         return markers ? _h('div', { staticClass: "q-range-mark", style: { left: (n - 1) * 100 * step / (max - min) + '%' } }) : _e();
-      }), _h('div', { staticClass: "q-range-track active-track", class: { dragging: dragging, 'track-draggable': dragRange }, style: { left: percentageMin * 100 + '%', width: activeTrackWidth } }), _h('div', { staticClass: "q-range-handle range-handle-min", class: { dragging: dragging, 'handle-at-minimum': value.min === min, undraggable: disableMin }, style: { left: percentageMin * 100 + '%' } }, [label || labelAlways ? _h('div', { staticClass: "q-range-label", class: { 'label-always': labelAlways } }, [_s(value.min)]) : _e()]), _h('div', { staticClass: "q-range-handle range-handle-max", class: { dragging: dragging, 'handle-at-maximum': value.max === max, undraggable: disableMax }, style: { left: percentageMax * 100 + '%' } }, [label || labelAlways ? _h('div', { staticClass: "q-range-label", class: { 'label-always': labelAlways } }, [_s(value.max)]) : _e()])])]);
+      }), _h('div', { staticClass: "q-range-track active-track", class: { dragging: dragging, 'track-draggable': dragRange }, style: { left: percentageMin * 100 + '%', width: activeTrackWidth } }), _h('div', { staticClass: "q-range-handle q-range-handle-min", class: { dragging: dragging, 'handle-at-minimum': value.min === min, undraggable: disableMin }, style: { left: percentageMin * 100 + '%' } }, [label || labelAlways ? _h('div', { staticClass: "q-range-label", class: { 'label-always': labelAlways } }, [_s(value.min)]) : _e()]), _h('div', { staticClass: "q-range-handle q-range-handle-max", class: { dragging: dragging, 'handle-at-maximum': value.max === max, undraggable: disableMax }, style: { left: percentageMax * 100 + '%' } }, [label || labelAlways ? _h('div', { staticClass: "q-range-label", class: { 'label-always': labelAlways } }, [_s(value.max)]) : _e()])])]);
     }
   }, staticRenderFns: [],
   props: {
@@ -5641,7 +5685,7 @@ var Tab = { render: function render() {
     with(this) {
       return _h('div', { staticClass: "q-tab items-center justify-center", class: { active: isActive, hidden: hidden, disabled: disable, hideIcon: hide === 'icon', hideLabel: hide === 'label' }, on: { "click": function click($event) {
             activate();
-          } } }, [route ? _h('router-link', { ref: "routerLink", attrs: { "to": route, "replace": replace, "append": append, "exact": exact } }) : _e(), icon ? _h('i', { staticClass: "q-tabs-icon" }, [_s(icon)]) : _e(), " ", _h('span', { staticClass: "q-tab-label" }, [_t("default")])]);
+          } } }, [route ? _h('router-link', { ref: "routerLink", attrs: { "to": route, "replace": replace, "append": append, "exact": exact } }, [icon ? _h('i', { staticClass: "q-tabs-icon" }, [_s(icon)]) : _e(), " ", _h('span', { staticClass: "q-tab-label" }, [_t("default")])]) : [icon ? _h('i', { staticClass: "q-tabs-icon" }, [_s(icon)]) : _e(), " ", _h('span', { staticClass: "q-tab-label" }, [_t("default")])]]);
     }
   }, staticRenderFns: [],
   props: {
@@ -6038,6 +6082,13 @@ var Tooltip = { render: function render() {
     }
   },
   methods: {
+    toggle: function toggle() {
+      if (this.opened) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
     open: function open() {
       if (this.disable) {
         return;
@@ -6080,7 +6131,7 @@ var Tooltip = { render: function render() {
   }
 };
 
-var QuasarTreeItem = { render: function render() {
+var QTreeItem = { render: function render() {
     with(this) {
       return _h('li', { staticClass: "q-tree-item" }, [_h('div', { class: { 'q-tree-expandable-item': isExpandable, 'q-tree-link': model.handler }, on: { "click": toggle } }, [model.icon ? _h('i', [_s(model.icon)]) : _e(), " ", _h('span', { staticClass: "q-tree-label" }, [_s(model.title)]), " ", isExpandable ? _h('span', { domProps: { "innerHTML": _s(model.expanded ? contractHtml : expandHtml) } }) : _e()]), _h('q-transition', { attrs: { "name": "slide" } }, [_h('ul', { directives: [{ name: "show", rawName: "v-show", value: isExpandable && model.expanded, expression: "isExpandable && model.expanded" }] }, [_l(model.children, function (item) {
         return _h('q-tree-item', { attrs: { "model": item, "contract-html": contractHtml, "expand-html": expandHtml } });
@@ -6132,7 +6183,7 @@ var Tree = { render: function render() {
     }
   },
   components: {
-    QuasarTreeItem: QuasarTreeItem
+    QTreeItem: QTreeItem
   }
 };
 
@@ -6145,61 +6196,16 @@ var Video = { render: function render() {
 };
 
 function registerDirectives(_Vue) {
-  _Vue.directive('go-back', dGoBack);
-  _Vue.directive('link', dLink);
-  _Vue.directive('scroll-fire', dScrollFire);
-  _Vue.directive('scroll', dScroll);
-  _Vue.directive('touch-hold', dTouchHold);
-  _Vue.directive('touch-pan', dTouchPan);
-  _Vue.directive('touch-swipe', dTouchSwipe);
+  [['go-back', dGoBack], ['link', dLink], ['scroll-fire', dScrollFire], ['scroll', dScroll], ['touch-hold', dTouchHold], ['touch-pan', dTouchPan], ['touch-swipe', dTouchSwipe]].forEach(function (d) {
+    _Vue.directive(d[0], d[1]);
+  });
 }
 
 function registerComponents(_Vue) {
-  _Vue.component('q-checkbox', Checkbox);
-  _Vue.component('q-chips', Chips);
-  _Vue.component('q-collapsible', Collapsible);
-  _Vue.component('q-context-menu', Platform.is.desktop ? ContextMenuDesktop : ContextMenuMobile);
-  _Vue.component('q-inline-datetime', current === 'ios' ? InlineDatetimeIOS : InlineDatetimeMaterial);
-  _Vue.component('q-datetime', Datetime);
-  _Vue.component('q-drawer', Drawer);
-  _Vue.component('q-drawer-link', DrawerLink);
-  _Vue.component('q-fab', Fab);
-  _Vue.component('q-small-fab', SmallFab);
-  _Vue.component('q-gallery', Gallery);
-  _Vue.component('q-gallery-slider', GallerySlider);
-  _Vue.component('q-infinite-scroll', InfiniteScroll);
-  _Vue.component('q-knob', Knob);
-  _Vue.component('q-layout', Layout);
-  _Vue.component('q-toolbar-title', ToolbarTitle);
-  _Vue.component('q-modal', Modal);
-  _Vue.component('q-numeric', Numeric);
-  _Vue.component('q-pagination', Pagination);
-  _Vue.component('q-parallax', Parallax);
-  _Vue.component('q-picker-textfield', PickerTextfield);
-  _Vue.component('q-popover', Popover);
-  _Vue.component('q-progress', Progress);
-  _Vue.component('q-progress-button', ProgressButton);
-  _Vue.component('q-pull-to-refresh', PullToRefresh);
-  _Vue.component('q-radio', Radio);
-  _Vue.component('q-range', Range);
-  _Vue.component('q-double-range', DoubleRange);
-  _Vue.component('q-rating', Rating);
-  _Vue.component('q-search', Search);
-  _Vue.component('q-select', Select);
-  _Vue.component('q-dialog-select', DialogSelect);
-  _Vue.component('q-slider', Slider);
   _Vue.component('spinner', Spinner);
-  _Vue.component('q-state', State);
-  _Vue.component('q-stepper', Stepper);
-  _Vue.component('q-step', Step);
-  _Vue.component('q-tab', Tab);
-  _Vue.component('q-tabs', Tabs);
-  _Vue.component('q-toggle', Toggle);
-  _Vue.component('q-tooltip', Tooltip);
-  _Vue.component('q-tree', Tree);
-  _Vue.component('q-video', Video);
-
-  _Vue.component('q-transition', Transition);
+  _Vue.component('q-transition', Transition);[['checkbox', Checkbox], ['chips', Chips], ['collapsible', Collapsible], ['context-menu', Platform.is.desktop ? ContextMenuDesktop : ContextMenuMobile], ['inline-datetime', current === 'ios' ? InlineDatetimeIOS : InlineDatetimeMaterial], ['datetime', Datetime], ['drawer', Drawer], ['drawer-link', DrawerLink], ['fab', Fab], ['small-fab', SmallFab], ['gallery', Gallery], ['gallery-slider', GallerySlider], ['checkbox', Checkbox], ['infinite-scroll', InfiniteScroll], ['knob', Knob], ['layout', Layout], ['toolbar-title', ToolbarTitle], ['modal', Modal], ['numeric', Numeric], ['pagination', Pagination], ['parallax', Parallax], ['picker-textfield', PickerTextfield], ['popover', Popover], ['progress', Progress], ['progress-button', ProgressButton], ['pull-to-refresh', PullToRefresh], ['radio', Radio], ['range', Range], ['double-range', DoubleRange], ['rating', Rating], ['search', Search], ['select', Select], ['dialog-select', DialogSelect], ['slider', Slider], ['state', State], ['stepper', Stepper], ['step', Step], ['tab', Tab], ['tabs', Tabs], ['toggle', Toggle], ['tooltip', Tooltip], ['tree', Tree], ['video', Video]].forEach(function (c) {
+    _Vue.component('q-' + c[0], c[1]);
+  });
 }
 
 var Vue;
@@ -6417,7 +6423,9 @@ var modalCSS = {
 
 var ActionSheets = { render: function render() {
     with(this) {
-      return _h('q-modal', { ref: "dialog", staticClass: "with-backdrop", attrs: { "position-classes": "items-end justify-center", "transition": "q-modal-actions", "content-css": css } }, [$quasar.theme === 'mat' ? _m(0) : _e(), $quasar.theme === 'ios' ? _m(1) : _e()]);
+      return _h('q-modal', { ref: "dialog", staticClass: "with-backdrop", attrs: { "position-classes": "items-end justify-center", "transition": "q-modal-actions", "content-css": css }, on: { "close": function close($event) {
+            __dismiss();
+          } } }, [$quasar.theme === 'mat' ? _m(0) : _e(), $quasar.theme === 'ios' ? _m(1) : _e()]);
     }
   }, staticRenderFns: [function () {
     with(this) {
@@ -6430,7 +6438,7 @@ var ActionSheets = { render: function render() {
               close(button.handler);
             } } }, [button.icon ? _h('i', { staticClass: "item-primary" }, [_s(button.icon)]) : _e(), " ", button.avatar ? _h('img', { staticClass: "item-primary", attrs: { "src": button.avatar } }) : _e(), _h('div', { staticClass: "item-content inset" }, [_s(button.label)])]);
       })])]), dismiss ? _h('div', { staticClass: "list no-border" }, [_h('div', { staticClass: "item item-link", class: dismiss.classes, on: { "click": function click($event) {
-            close(dismiss.handler);
+            close();
           } } }, [dismiss.icon ? _h('i', { staticClass: "item-primary" }, [_s(dismiss.icon)]) : _e(), _h('div', { staticClass: "item-content inset" }, [_s(dismiss.label)])])]) : _e()]);
     }
   }, function () {
@@ -6444,7 +6452,7 @@ var ActionSheets = { render: function render() {
               close(button.handler);
             } } }, [button.icon ? _h('i', { staticClass: "item-primary" }, [_s(button.icon)]) : _e(), " ", button.avatar ? _h('img', { staticClass: "item-primary", attrs: { "src": button.avatar } }) : _e(), _h('div', { staticClass: "item-content inset" }, [_s(button.label)])]);
       })])])]), dismiss ? _h('div', { staticClass: "q-action-sheet" }, [_h('div', { staticClass: "item item-link", class: dismiss.classes, on: { "click": function click($event) {
-            close(dismiss.handler);
+            close();
           } } }, [_h('div', { staticClass: "item-content row justify-center" }, [_s(dismiss.label)])])]) : _e()]);
     }
   }],
@@ -6476,25 +6484,34 @@ var ActionSheets = { render: function render() {
   },
   methods: {
     close: function close(fn) {
-      var _this = this;
-
       if (!this.opened) {
         return;
       }
+      var hasFn = typeof fn === 'function';
+
+      if (hasFn) {
+        this.__runCancelHandler = false;
+      }
       this.$refs.dialog.close(function () {
-        _this.$root.$destroy();
-        if (typeof fn === 'function') {
+        if (hasFn) {
           fn();
         }
       });
+    },
+    __dismiss: function __dismiss() {
+      this.$root.$destroy();
+      if (this.__runCancelHandler && this.dismiss && typeof this.dismiss.handler === 'function') {
+        this.dismiss.handler();
+      }
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this = this;
 
+    this.__runCancelHandler = true;
     this.$nextTick(function () {
-      _this2.$refs.dialog.open();
-      _this2.$root.quasarClose = _this2.close;
+      _this.$refs.dialog.open();
+      _this.$root.quasarClose = _this.close;
     });
   },
   destroyed: function destroyed() {
